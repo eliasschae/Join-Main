@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Join Contacts</title>
+    <script src="script.js"></script>
+    <script src="js/contacts.js"></script>
+    <script src="js/initials.js"></script>
+    <script src="js/htmlcontacts.js"></script>
+    <script src="js/contacts_edit.js"></script>
+    <script src="js/contacts_eventlisteners.js"></script> 
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/contacts.css" />
+    <link rel="stylesheet" href="css/contacts_responsive.css" />
+    <link rel="icon" href="assets/img/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="fonts/PTSans-Regular.ttf" />
+    <link rel="stylesheet" href="fonts/PTSans-Bold.ttf" />
+    <link rel="stylesheet" href="fonts/PTSans-Italic.ttf" />
+  </head>
+  <body onload="fillHeaderInitials()">
+    <div class="wholeJoinContainer">
+      <section class="headerAndOpenedContainer">
+        <header>
+          <img class="logoResponsive" src="assets/img/logo.svg" alt="Logo" />
+          <div class="headlineContainer">
+            <span class="headline">Kanban Project Management Tool</span>
+          </div>
+          <div class="helpAndUserContainer">
+            <img src="assets/img/help.svg" alt="Help" class="helpIcon" onclick="changeHtmlPage('help.html')" />
+            <div class="initials" id="headerInitials"></div>
+            <div class="menu" id="menu">
+              <a onclick="changeHtmlPage('help.html')" class="helpAtNavBar">Help</a>
+              <a onclick="changeHtmlPage('legal_notice.html')">Legal Notice</a>
+              <a onclick="changeHtmlPage('privacy_policy.html')">Privacy Policy</a>
+              <a href="login.html">Log out</a>
+            </div>
+          </div>
+        </header>
+        <div class="mainContent">
+          <section class="openContactsContainer">
+            <div class="addContact">
+              <button class="addContactButton">
+                <span class="addContactText">Add new contact</span>
+                <img class="imgaddcontact" src="assets/img/person_add.svg" />
+              </button>
+            </div>
+            <div id="contacts" class="contacts">
+              <div id="contacts-container" class="contacts-container"></div>
+            </div>
+          </section>
+          <section class="contentright" id="contentright">
+            <div class="contentrightResponsive" onclick="closeEditAndDeleteResponsive()">
+              <div class="h1contact">
+                <div class="h1-div-contact">
+                  <p class="P-contact">Contacts</p>
+                  <div class="seperator"></div>
+                  <p class="P-contact-right">Better with a team</p>
+                  <div class="seperatorResponsive"></div>
+                </div>
+                <div class="closeContactResponsive">
+                  <img
+                    src="assets/img/arrowLeft.svg"
+                    alt="Get Back"
+                    class="closeContactInfoResponsiveImg"
+                    onclick="closeContactInfoResponsive()"
+                  />
+                </div>
+              </div>
+              <div class="contactdetails-right"></div>
+            </div>
+            <div class="openEditandDeleteResponsive" onclick="openEditAndDeleteResponsive()">
+              <img src="assets/img/openEditAndDelete.svg" alt="Open Edit and Delete Image" />
+            </div>
+          </section>
+        </div>
+      </section>
+      <section class="sideBarContainer">
+        <div class="sideBarLogoContainer">
+          <img class="logoImg" src="assets/img/logoWhite.svg" alt="Join logo" />
+        </div>
+        <div class="sideBarChooseSectionContainer">
+          <a onclick="changeHtmlPage('summary.html')" class="summaryContainer"
+            ><div class="sideBarImgContainer">
+              <img src="assets/img/summaryIcon.svg" alt="Summary Icon" class="sideBarImage" />
+            </div>
+            <span class="sideBarText">Summary</span></a
+          >
+          <a onclick="changeHtmlPage('add_task.html')" class="addTaskContainer"
+            ><div class="sideBarImgContainer">
+              <img src="assets/img/addTaskIcon.svg" alt="Add Task Icon" class="sideBarImage" />
+            </div>
+            <span class="sideBarText">Add Task</span></a
+          >
+          <a onclick="changeHtmlPage('board.html')" class="boardContainer"
+            ><div class="sideBarImgContainer">
+              <img src="assets/img/boardIcon.svg" alt="Board Icon" class="sideBarImage" />
+            </div>
+            <span class="sideBarText">Board</span></a
+          >
+          <a onclick="changeHtmlPage('contacts.html')" class="openedDarkBackground"
+            ><div class="sideBarImgContainer">
+              <img src="assets/img/contactsIcon.svg" alt="Assets Icon" class="sideBarImage" />
+            </div>
+            <span class="sideBarText">Contacts</span></a
+          >
+        </div>
+        <div class="privacyPolicyAndLegalNoticeContainer">
+          <a class="privacyPolicyContainer" onclick="changeHtmlPage('privacy_policy.html')">
+            <span class="privacyPolicyText">Privacy Policy</span>
+          </a>
+          <a class="legalNoticeContainer" onclick="changeHtmlPage('legal_notice.html')">
+            <span class="legalNoticeText">Legal Notice</span>
+          </a>
+        </div>
+      </section>
+    </div>
+    <div id="overlay-container" class="overlay-container"></div>
+    <div class="overlay" id="overlay">
+      <div class="mainSectionOverlay">
+        <div class="contentleft">
+          <div class="contentleft2">
+            <img class="logoAddContact" src="assets/img/Capa 2.svg" />
+            <div class="overlayText">
+              <p class="P1overlay">Add contact</p>
+              <p class="P2overlay">Tasks are better with a team!</p>
+              <div class="divider-vertical"></div>
+            </div>
+          </div>
+        </div>
+        <div class="overlay-contentright">
+          <img src="assets/img/Group 13.svg" class="imgAddContact" />
+          <form class="inputSection" id="contactForm" onsubmit="createContact(event)">
+            <div class="imgCloseOverlayContainer">
+              <img class="imgcloseOverlay" src="assets/img/Close.svg" id="closeOverlay" />
+            </div>
+            <div class="input-divs">
+              <input required id="contactName" placeholder="Name" minlength="5" maxlength="20" />
+              <img src="assets/img/person.svg" class="imgsinput" />
+            </div>
+            <div class="input-divs">
+              <input
+                required
+                id="contactEmail"
+                placeholder="Email"
+                pattern=".*@.*\..*"
+                type="email"
+                title="An @ is required"
+                maxlength="25"
+              />
+              <img src="assets/img/mail.svg" class="imgsinput1" />
+            </div>
+            <div class="input-divs">
+              <input required id="contactPhone" placeholder="Phone" type="tel" pattern="^[+0][\d]{0,15}$" maxlength="15" />
+              <img src="assets/img/call.svg" class="imgsinput2" />
+            </div>
+            <div class="overlayButtons">
+              <div class="clearButton">
+                Cancel
+                <img class="imgClear" src="assets/img/Close.svg" />
+              </div>
+              <button type="submit" class="createButton">
+                Create contact
+                <img class="imgcheck" src="assets/img/check.svg" />
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

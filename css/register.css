@@ -1,0 +1,420 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: 'PTSans', sans-serif;
+    background-color: rgb(246, 247, 248);
+}
+
+button {
+    border: unset;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(54, 176, 228);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.d-none {
+    display: none !important;
+}
+
+.logoContainer {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.logoImg {
+    height: 12vh;
+    height: 12svh;
+}
+
+.wholeSignUpContainer {
+    display: flex;
+    height: 100vh;
+    height: 100svh;
+    width: 100vw;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    justify-content: center;
+}
+
+.signUpContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    border-radius: 15px;
+    height: 72vh;
+    height:  72svh;
+    max-height: 530px;
+    max-width: 500px;
+    width: 33vw;
+    min-width: 400px;
+    box-shadow: 0px 0px 5px 0px rgb(0, 0, 0, 0.1);
+}
+
+.headlineAndArrowContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 90%;
+}
+
+.arrowLeftImg {
+    height: 32px;
+    width: 32px;
+}
+
+.arrowLeftImg:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.06);
+    border-radius: 20px;
+    scale: 1.08;
+}
+
+.headlineAndUnderlineContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+}
+
+h1 {
+    font-size: 2.8em;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+
+.underline {
+    border-top: 2.5px solid rgb(41, 171, 226);
+    /* Farbe und Dicke des Unterstrichs anpassen */
+    width: 110px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signUpForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 45vh;
+    height: 45svh;
+    max-height: 300px;
+}
+
+.signUpInputFields {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.signUpInputEmail {
+    background-color: white;
+    background-image: url();
+    background-size: 0px 0px;
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    padding-left: 10px;
+    padding-right: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 32px;
+    border-radius: 5px;
+    border: 1px solid rgb(226, 226, 226);
+    width: 270px;
+}
+
+.signUpInputEmail:focus {
+    outline: unset;
+}
+
+.signUpFormInputAndImgContainer {
+    display: flex;
+    align-items: center;
+}
+
+.signUpForm img {
+    height: 20px;
+    width: 20px;
+    margin-left: -30px;
+}
+
+.acceptPrivacyPolicyContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 0.7em;
+    font-size: 0.8em;
+    gap: 4px;
+    color: rgb(168, 168, 168);
+}
+
+.checkbox:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    box-shadow: 0px 1px 0px 0px rgb(0, 0, 0, 0.15);
+}
+
+
+.checkbox-wrapper-19 {
+    box-sizing: border-box;
+    --background-color: #fff;
+    --checkbox-height: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes dothabottomcheck-19 {
+    0% {
+        height: 0;
+    }
+
+    100% {
+        height: calc(var(--checkbox-height) / 2);
+    }
+}
+
+@keyframes dothatopcheck-19 {
+    0% {
+        height: 0;
+    }
+
+    50% {
+        height: 0;
+    }
+
+    100% {
+        height: calc(var(--checkbox-height) * 0.95);
+    }
+}
+
+.checkbox-wrapper-19 input[type=checkbox] {
+    display: none;
+}
+
+.checkbox-wrapper-19 .checkbox {
+    height: var(--checkbox-height);
+    width: var(--checkbox-height);
+    background-color: transparent;
+    border: calc(var(--checkbox-height) * .1) solid #000;
+    border-radius: 5px;
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    transition: border-color ease 0.2s;
+    cursor: pointer;
+}
+
+.checkbox-wrapper-19 .checkbox::before,
+.checkbox-wrapper-19 .checkbox::after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    position: absolute;
+    height: 0;
+    width: calc(var(--checkbox-height) * .12);
+    background-color: black;
+    display: inline-block;
+    transform-origin: left top;
+    border-radius: 5px;
+    content: " ";
+    -webkit-transition: opacity ease 0.5;
+    -moz-transition: opacity ease 0.5;
+    transition: opacity ease 0.5;
+}
+
+.checkbox-wrapper-19 .checkbox::before {
+    top: calc(var(--checkbox-height) * .75);
+    left: calc(var(--checkbox-height) * .41);
+    box-shadow: 0 0 0 calc(var(--checkbox-height) * .05) var(--background-color);
+    transform: rotate(-145deg);
+}
+
+.checkbox-wrapper-19 .checkbox::after {
+    top: calc(var(--checkbox-height) * .37);
+    left: calc(var(--checkbox-height) * .05);
+    transform: rotate(-45deg);
+}
+
+.checkbox-wrapper-19 input[type=checkbox]:checked+.checkbox,
+.checkbox-wrapper-19 .checkbox.checked {
+    border-color: black;
+}
+
+.checkbox-wrapper-19 input[type=checkbox]:checked+.checkbox::after,
+.checkbox-wrapper-19 .checkbox.checked::after {
+    height: calc(var(--checkbox-height) / 2);
+    animation: dothabottomcheck-19 0.2s ease 0s forwards;
+}
+
+.checkbox-wrapper-19 input[type=checkbox]:checked+.checkbox::before,
+.checkbox-wrapper-19 .checkbox.checked::before {
+    height: calc(var(--checkbox-height) * 1.1);
+    animation: dothatopcheck-19 0.4s ease 0s forwards;
+}
+
+.checkbox-wrapper-19:hover .checkbox {
+    background-color: rgba(204, 204, 204, 0.2);
+}
+
+.checkbox:hover {
+    box-shadow: 0px 0px 2px 2px rgb(0, 0, 0, 0.15);
+}
+
+
+.signUpButtonTrue {
+    background-color: rgb(42, 54, 71);
+    color: white;
+    border-radius: 5px;
+    height: 40px;
+    width: 91px;
+    font-weight: bold;
+}
+
+.signUpButtonTrue:hover {
+    background-color: rgb(41, 171, 226);
+    box-shadow: 0px 3.5px 0px 0px rgb(0, 0, 0, 0.1);
+    transition-delay: 0.15s;
+}
+
+.signUpButtonFalse {
+    background-color: rgb(200, 200, 200);
+    color: white;
+    border-radius: 5px;
+    height: 40px;
+    width: 91px;
+    font-weight: bold;
+}
+
+.signUpButtonFalse:hover {
+    cursor: default;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+    font-size: 0.9em;
+    position: absolute;
+    bottom: 3vh;
+    bottom: 3svh;
+}
+
+.legalNoticeText {
+    color: rgb(178, 178, 178);
+}
+
+.legalNoticeText:hover {
+    color: rgb(41, 171, 226);
+    cursor: pointer;
+    text-decoration: none;
+    scale: 1.05;
+}
+
+.privacyPolicyText {
+    color: rgb(178, 178, 178);
+}
+
+.privacyPolicyText:hover {
+    color: rgb(41, 171, 226);
+    cursor: pointer;
+    text-decoration: none;
+    scale: 1.05;
+}
+
+.msgBoxSignedUpContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: rgb(245, 245, 245);
+}
+
+.msgBoxSignedUp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 312px;
+    height: 74px;
+    border-radius: 20px;
+    background-color: rgb(42, 54, 71);
+    color: white;
+    margin-top: 10vh;
+    margin-top: 10svh;
+}
+
+
+.msgBoxContainer {
+    position: absolute;
+    background-color: rgb(246, 247, 248, 0.45);
+    height: 100vh;
+    height: 100svh;
+    width: 100vw;
+    z-index: 999;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.msgBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    border-radius: 20px;
+    padding: 0 20px;
+    background-color: rgb(42, 54, 71);
+    color: white;
+}
+
+@media (max-width: 750px) {
+    .logoContainer {
+        top: 10px;
+        left: 10px;
+    }
+
+    .signUpContainer {
+        height: 64vh;
+        height: 64svh;
+    }
+}
+
+@media (max-width: 430px) {
+    .signUpContainer {
+        width: 95vw;
+        min-width: 300px;
+    }
+
+    .signUpInputFields {
+        width: 80vw;
+    }
+
+    h1 {
+        font-size: 2.5em;
+    }
+}

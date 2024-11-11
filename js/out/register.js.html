@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: register.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: register.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * This function is used to render the page if the user refresh the page or switch from another HTML-page to this one.
+ * 
+ * @author: Robin
+ */
+
+// async function init() {
+//     loadUsers();
+//     checkAcceptPrivacyPolicy();
+// document.getElementById('msgBoxSignedUp').classList.add('d-none');
+// document.getElementById('registerContainer').classList.remove('d-none');
+// }
+
+/**
+ * This function is used to block and reactivate the button, if the user accepts the privacy policy and the inputs are not empty.
+ * 
+ * @author: Robin
+ */
+function checkAcceptPrivacyPolicy() {
+    let checkbox = document.getElementById('checkbox');
+    let buttonId = document.getElementById('signUpButton');
+    let name = document.getElementById('name').value;
+    let email = document.getElementById('email').value;
+    let password = document.getElementById('password1').value;
+    let confirmPassword = document.getElementById('password2').value;
+    if (checkbox.checked &amp;&amp; name !== '' &amp;&amp; email !== '' &amp;&amp; password !== '' &amp;&amp; confirmPassword !== '') {
+        buttonId.classList.remove('signUpButtonFalse');
+        buttonId.classList.add('signUpButtonTrue');
+    } else {
+        buttonId.classList.remove('signUpButtonTrue');
+        buttonId.classList.add('signUpButtonFalse');
+    }
+}
+
+/**
+ * This function is used to add a new user to the database.
+ * 
+ * @author: Robin
+ */
+async function addUser() {
+    let msgBox = document.getElementById('msgBox');
+    let name = document.getElementById('name').value;
+    let email = document.getElementById('email').value;
+    let password = document.getElementById('password1');
+    let confirmPassword = document.getElementById('password2');
+    let newArray = { 'mail': email, 'name': name, 'password': password.value, 'contacts': testContacts, 'tasks': testTasks };
+    let actualUsers = await loadData('users');
+    let mailExists = await checkMail(msgBox, email, actualUsers);
+    if (mailExists) {
+        return;
+    }
+    let nameChecked = await checkName(msgBox, name);
+    if (!nameChecked) {
+        return;
+    }
+    await putNewUser(password, confirmPassword, msgBox, newArray);
+}
+
+/**
+ * This function checks if the user mail already exists in the database.
+ * 
+ * @param {Element} msgBox - The message box element to show if the mail already exists.
+ * @param {string} email - The email to check.
+ * @param {Array} actualUsers - The array of actual users.
+ * 
+ * @returns {boolean} - Returns true if the email exists, otherwise false.
+ * @author: Robin
+ */
+async function checkMail(msgBox, email, actualUsers) {
+    for (let key in actualUsers) {
+        let user = actualUsers[key];
+        if (user &amp;&amp; user.mail === email) {
+            let msgBoxText = document.getElementById('msgBoxText');
+            msgBoxText.innerHTML = 'User already exists. Please use another Mail-Adress!';
+            msgBox.classList.remove('d-none');
+            await new Promise(resolve => setTimeout(() => {
+                msgBox.classList.add('d-none');
+                resolve();
+            }, 2000));
+            return true;
+        }
+    }
+    return false;    
+}
+
+/**
+ * This function checks if the user name is valid.
+ * 
+ * @param {Element} msgBox - The message box element to show if the name is invalid.
+ * @param {string} fullName - The full name of the user.
+ * 
+ * @returns {boolean} - Returns true if the name is valid, otherwise false.
+ * @author: Robin
+ */
+async function checkName(msgBox, fullName) {
+    let nameParts = fullName.trim().split(' ');
+    if (nameParts.length !== 2) {
+        let msgBoxText = document.getElementById('msgBoxText');
+        msgBoxText.innerHTML = 'Please enter your full name.';
+        msgBox.classList.remove('d-none');
+        await new Promise(resolve => setTimeout(() => {
+            msgBox.classList.add('d-none');
+            resolve();
+        }, 2000));
+        return false;
+    }
+    return true;
+}
+
+/**
+ * This function checks if the user password and confirm password are the same and shows a message if they are not.
+ * If the password and confirm password are the same, the user is added to the database and gets to the summary page.
+ * 
+ * @param {Element} password - The password input element.
+ * @param {Element} confirmPassword - The confirm password input element.
+ * @param {Element} msgBox - The message box element to show if the passwords do not match.
+ * @param {Array} actualisedUsers - The array of actual users.
+ * 
+ * @author: Robin
+ */
+async function putNewUser(password, confirmPassword, msgBox, newArray) {
+    if (password.value === confirmPassword.value) {
+        await postData('users', newArray);
+        document.getElementById('registerContainer').classList.add('d-none');
+        let msgBoxSignedUp = document.getElementById('msgBoxSignedUp');
+        msgBoxSignedUp.classList.remove('d-none');
+        setTimeout(function () {
+            window.location.href = 'login.html?msg=Registrierung erfolgreich';
+        }, 3000);
+    } else {
+        let msgBoxText = document.getElementById('msgBoxText');
+        msgBoxText.innerHTML = `Ups! your password don't match.`;
+        msgBox.classList.remove('d-none');
+        await new Promise(resolve => setTimeout(() => {
+            msgBox.classList.add('d-none');
+            resolve();
+        }, 2000));
+    }
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addAssignedValue">addAssignedValue</a></li><li><a href="global.html#addCategory">addCategory</a></li><li><a href="global.html#addPriorityValue">addPriorityValue</a></li><li><a href="global.html#addSubTasks">addSubTasks</a></li><li><a href="global.html#addTaskBtnSmall">addTaskBtnSmall</a></li><li><a href="global.html#addUser">addUser</a></li><li><a href="global.html#allowDrop">allowDrop</a></li><li><a href="global.html#assignedItemEventListener">assignedItemEventListener</a></li><li><a href="global.html#cancelAddCard">cancelAddCard</a></li><li><a href="global.html#checkAcceptPrivacyPolicy">checkAcceptPrivacyPolicy</a></li><li><a href="global.html#checkAddSubtasks">checkAddSubtasks</a></li><li><a href="global.html#checkEditSubtasks">checkEditSubtasks</a></li><li><a href="global.html#checkMail">checkMail</a></li><li><a href="global.html#checkName">checkName</a></li><li><a href="global.html#checkUser">checkUser</a></li><li><a href="global.html#checkUsers">checkUsers</a></li><li><a href="global.html#checkedUsers">checkedUsers</a></li><li><a href="global.html#clearInputFields">clearInputFields</a></li><li><a href="global.html#deleteFullSizeBoard">deleteFullSizeBoard</a></li><li><a href="global.html#displayContacts">displayContacts</a></li><li><a href="global.html#doDragLeave">doDragLeave</a></li><li><a href="global.html#doDragOver">doDragOver</a></li><li><a href="global.html#doDrop">doDrop</a></li><li><a href="global.html#doSetData">doSetData</a></li><li><a href="global.html#editAssignedValue">editAssignedValue</a></li><li><a href="global.html#editCategory">editCategory</a></li><li><a href="global.html#editPriorityValue">editPriorityValue</a></li><li><a href="global.html#editSubTasksValue">editSubTasksValue</a></li><li><a href="global.html#fillDates">fillDates</a></li><li><a href="global.html#fillUrgentDate">fillUrgentDate</a></li><li><a href="global.html#fillUrgentTask">fillUrgentTask</a></li><li><a href="global.html#generateContactHTML">generateContactHTML</a></li><li><a href="global.html#generateRandomColor">generateRandomColor</a></li><li><a href="global.html#getAddAssgined">getAddAssgined</a></li><li><a href="global.html#getAddObj">getAddObj</a></li><li><a href="global.html#getAddSubtaskListHTML">getAddSubtaskListHTML</a></li><li><a href="global.html#getAssigned">getAssigned</a></li><li><a href="global.html#getAssignedItem">getAssignedItem</a></li><li><a href="global.html#getAssignedUser">getAssignedUser</a></li><li><a href="global.html#getAssignedUsersAddCard">getAssignedUsersAddCard</a></li><li><a href="global.html#getBoardCard">getBoardCard</a></li><li><a href="global.html#getBoardContainer">getBoardContainer</a></li><li><a href="global.html#getBoardContents">getBoardContents</a></li><li><a href="global.html#getBoardSection">getBoardSection</a></li><li><a href="global.html#getCategory">getCategory</a></li><li><a href="global.html#getCheckedUsers">getCheckedUsers</a></li><li><a href="global.html#getClosestContent">getClosestContent</a></li><li><a href="global.html#getData">getData</a></li><li><a href="global.html#getDropZones">getDropZones</a></li><li><a href="global.html#getEditAssigned">getEditAssigned</a></li><li><a href="global.html#getEditAssignedUser">getEditAssignedUser</a></li><li><a href="global.html#getEditBoard">getEditBoard</a></li><li><a href="global.html#getEditContacts">getEditContacts</a></li><li><a href="global.html#getEditDate">getEditDate</a></li><li><a href="global.html#getEditPriority">getEditPriority</a></li><li><a href="global.html#getEditSubtasks">getEditSubtasks</a></li><li><a href="global.html#getEditSubtasksList">getEditSubtasksList</a></li><li><a href="global.html#getElementById">getElementById</a></li><li><a href="global.html#getEventListeners">getEventListeners</a></li><li><a href="global.html#getExampleData">getExampleData</a></li><li><a href="global.html#getFullSizeAssigned">getFullSizeAssigned</a></li><li><a href="global.html#getFullSizeBoard">getFullSizeBoard</a></li><li><a href="global.html#getFullSizeCategory">getFullSizeCategory</a></li><li><a href="global.html#getFullSizePriority">getFullSizePriority</a></li><li><a href="global.html#getFullSizeSubtask">getFullSizeSubtask</a></li><li><a href="global.html#getIcons">getIcons</a></li><li><a href="global.html#getInitials">getInitials</a></li><li><a href="global.html#getItemById">getItemById</a></li><li><a href="global.html#getPriority">getPriority</a></li><li><a href="global.html#getProgressBar">getProgressBar</a></li><li><a href="global.html#getSubtaskListHTML">getSubtaskListHTML</a></li><li><a href="global.html#getSubtasksEventListeners">getSubtasksEventListeners</a></li><li><a href="global.html#guestLogIn">guestLogIn</a></li><li><a href="global.html#init">init</a></li><li><a href="global.html#initSummary">initSummary</a></li><li><a href="global.html#loadData">loadData</a></li><li><a href="global.html#loadUserData">loadUserData</a></li><li><a href="global.html#onClickAddCategory">onClickAddCategory</a></li><li><a href="global.html#onClickAddSubTasks">onClickAddSubTasks</a></li><li><a href="global.html#onClickAddTaskBoard">onClickAddTaskBoard</a></li><li><a href="global.html#onClickChecker">onClickChecker</a></li><li><a href="global.html#onClickCloseFullSize">onClickCloseFullSize</a></li><li><a href="global.html#onClickEditBoard">onClickEditBoard</a></li><li><a href="global.html#onClickEditCategory">onClickEditCategory</a></li><li><a href="global.html#onClickEditSubtasks">onClickEditSubtasks</a></li><li><a href="global.html#onClickEditing">onClickEditing</a></li><li><a href="global.html#onClickFullSizeBoard">onClickFullSizeBoard</a></li><li><a href="global.html#onClickTrash">onClickTrash</a></li><li><a href="global.html#putNewUser">putNewUser</a></li><li><a href="global.html#read">read</a></li><li><a href="global.html#renderBoards">renderBoards</a></li><li><a href="global.html#save">save</a></li><li><a href="global.html#saveAddData">saveAddData</a></li><li><a href="global.html#saveEditData">saveEditData</a></li><li><a href="global.html#saveUserData">saveUserData</a></li><li><a href="global.html#searchCard">searchCard</a></li><li><a href="global.html#setEditItems">setEditItems</a></li><li><a href="global.html#setupContactClickEvents">setupContactClickEvents</a></li><li><a href="global.html#showCheckboxes">showCheckboxes</a></li><li><a href="global.html#sortContacts">sortContacts</a></li><li><a href="global.html#toggleCheckUsers">toggleCheckUsers</a></li><li><a href="global.html#togglePasswordVisbility">togglePasswordVisbility</a></li><li><a href="global.html#toggleSelectBtn">toggleSelectBtn</a></li><li><a href="global.html#updateChecked">updateChecked</a></li><li><a href="global.html#updateItem">updateItem</a></li><li><a href="global.html#updateSubtaskCheck">updateSubtaskCheck</a></li><li><a href="global.html#userNotFound">userNotFound</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Thu May 23 2024 15:42:07 GMT+0200 (Central European Summer Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

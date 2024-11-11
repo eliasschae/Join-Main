@@ -1,0 +1,430 @@
+.full-size-label {
+  font-size: 20px;
+}
+
+.full-size-input {
+  margin-top: 8px;
+  margin-bottom: 32px;
+  padding: 12px 21px 12px 21px;
+  border: 1px solid #d1d1d1;
+  border-radius: 10px;
+  font-size: 20px;
+  min-height: 24px;
+}
+
+.full-size-textarea {
+  margin-top: 8px;
+  margin-bottom: 32px;
+  padding: 12px 21px 12px 21px;
+  border: 1px solid #d1d1d1;
+  border-radius: 10px;
+  font-size: 20px;
+  min-height: 120px;
+}
+
+.full-size-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  min-height: 100%;
+  background-color: #00000050;
+}
+
+.full-size-board {
+  position: absolute;
+  transform: translate(0, 0);
+  width: 30vw;
+  /* height: 790px; */
+  /* padding: 48px 40px 48px 40px; */
+  overflow: hidden;
+  border-radius: 30px;
+  background-color: #fff;
+  box-shadow: 0px 0px 4px 0px #00000029;
+  animation-name: slideIn;
+  animation-duration: 0.9s;
+  animation-timing-function: ease-in-out;
+}
+
+.full-size-edit-board {
+  position: absolute;
+  width: 30vw;
+  /* height: 60vh; */
+  /* padding: 48px 40px 48px 40px; */
+  overflow: hidden;
+  border-radius: 30px;
+  background-color: #fff;
+}
+
+.overlay-closed {
+  animation-name: slideOut;
+  animation-duration: 0.9s;
+  transition: transform 0.9s ease;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes slideOut {
+  from {
+    left: 20vw;
+  }
+
+  to {
+    left: 150vw;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    left: 150vw;
+  }
+
+  to {
+    left: 35vw;
+  }
+}
+
+.full-size-add-board {
+  position: absolute;
+  transform: translate(0, 0);
+  width: 60vw;
+  /* height: 80vh; */
+  overflow: hidden;
+  border-radius: 30px;
+  background-color: #fff;
+  box-shadow: 0px 0px 4px 0px #00000029;
+  animation-name: slideInAdd;
+  animation-duration: 0.9s;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes slideInAdd {
+  from {
+    left: 150vw;
+  }
+
+  to {
+    left: 20vw;
+  }
+}
+
+@keyframes slideOutAdd {
+  from {
+    left: 20vw;
+  }
+
+  to {
+    left: 150vw;
+  }
+}
+
+.overlay-closed-add-board {
+  animation-name: slideOutAdd;
+  animation-duration: 0.9s;
+  transition: transform 0.9s ease;
+  animation-timing-function: ease-in-out;
+}
+
+.full-size-add-form {
+  /* min-height: 550px; */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  padding-top: 2vw;
+}
+
+.full-size-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.full-size-edit-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.full-size-title {
+  margin-top: 24px;
+  font-size: 61px;
+  font-weight: bold;
+  overflow-wrap: break-word;
+}
+
+.full-size-description {
+  margin-top: 24px;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.full-size-date {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.full-size-due-date {
+  margin-left: 25px;
+}
+
+.full-size-priority {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.full-size-priority-icon {
+  margin-left: 22px;
+}
+
+.full-size-assign {
+  margin-top: 24px;
+}
+
+.full-size-assign-user {
+  height: 56px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.full-size-subtasks {
+  margin-top: 24px;
+}
+
+.full-size-subtask-li {
+  display: flex;
+  align-items: center;
+}
+
+label {
+  word-wrap: break-word;
+}
+
+.full-size-p {
+  width: 90%;
+}
+
+.full-size-footer-add-board {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.full-size-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.full-size-button {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.full-size-button-edit {
+  margin-left: 8px;
+  margin-right: 8px;
+  width: 63px;
+  height: 24px;
+  background-image: url("/assets/icons/board/fullsize/edit-button.svg");
+  background-size: cover;
+}
+
+.full-size-button-edit:hover {
+  margin-left: 8px;
+  margin-right: 8px;
+  width: 63px;
+  height: 24px;
+  background-image: url("/assets/icons/board/fullsize/edit-button-hover.svg");
+  background-size: cover;
+}
+
+.full-size-button-delete {
+  margin-left: 8px;
+  margin-right: 8px;
+  width: 81px;
+  height: 24px;
+  background-image: url("/assets/icons/board/fullsize/delete-button.svg");
+  background-size: cover;
+}
+
+.full-size-button-delete:hover {
+  margin-left: 8px;
+  margin-right: 8px;
+  width: 83px;
+  height: 24px;
+  background-image: url("/assets/icons/board/fullsize/delete-button-hover.svg");
+  background-size: cover;
+}
+
+.full-size-add-task {
+  font-size: 61px;
+  font-weight: bold;
+}
+
+.full-size-line {
+  width: 1px;
+  height: 24px;
+  background-color: #d1d1d1;
+}
+
+.full-size-form {
+  height: 95%;
+  display: flex;
+  flex-direction: column;
+  /* overflow-y: scroll; */
+}
+
+.full-size-row {
+  height: 360px;
+  overflow-y: scroll;
+}
+
+.scrollable-form {
+  /* height: 100%; */
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+.board-container {
+  padding: 48px 40px 48px 40px;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.board-container-add-board {
+  padding: 48px 40px 48px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.board-container-fullsize {
+  padding: 48px 40px 48px 40px;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.board-container-content {
+  overflow-y: scroll;
+}
+
+.btn-row {
+  display: flex;
+}
+
+@media screen and (max-width: 1100px) {
+  .full-size-board {
+    width: 50vw;
+  }
+
+  .full-size-edit-board {
+    width: 50vw;
+  }
+
+  @keyframes slideIn {
+    from {
+      left: 150vw;
+    }
+
+    to {
+      left: 25vw;
+    }
+  }
+
+  .board-container-fullsize {
+    padding: 24px 20px 24px 20px;
+  }
+
+  .full-size-title {
+    font-size: 40px;
+  }
+
+  .board-container {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .full-size-board {
+    width: 60vw;
+  }
+
+  .full-size-edit-board {
+    width: 60vw;
+  }
+
+  .full-size-title {
+    font-size: 32px;
+  }
+
+  .full-size-add-task {
+    font-size: 40px;
+  }
+
+  .full-size-row {
+    height: 360px;
+  }
+
+  @keyframes slideIn {
+    from {
+      left: 150vw;
+    }
+
+    to {
+      left: 20vw;
+    }
+  }
+}
+
+@media screen and (max-width: 510px) {
+  .full-size-row {
+    height: 60vh;
+  }
+  .board-container-fullsize {
+    height: 90%;
+  }
+
+  .full-size-board {
+    width: 90vw;
+    height: 80vh;
+  }
+
+  .full-size-edit-board {
+    width: 90vw;
+    height: 80vh;
+  }
+
+  .full-size-add-board {
+    width: 90vw;
+  }
+
+  .full-size-form {
+    height: 70vh;
+  }
+
+  @keyframes slideIn {
+    from {
+      left: 150vw;
+    }
+
+    to {
+      left: 5vw;
+    }
+  }
+
+  .board-container {
+    padding: 12px 10px 12px 10px;
+  }
+}
