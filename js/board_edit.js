@@ -4,7 +4,6 @@
  * @param {string} id - The ID of the board item to retrieve.
  * @param {string} contentId - The ID of the content to which the board item belongs.
  * @return {Promise<void>} A Promise that resolves when the edit form has been updated.
- * @author Hanbit Chang
  */
 async function getEditBoard(id, contentId) {
   const title = document.querySelector("input[id=title-editCard]");
@@ -38,8 +37,6 @@ function oneCheckBoxEdit() {
 
 /**
  * Toggles the "open" class on the select buttons with the ID "select-btn-editCard" when clicked.
- *
- * @author Hanbit Chang
  */
 function toggleSelectBtn() {
   const selectBtns = document.querySelectorAll("#select-btn-editCard");
@@ -61,7 +58,6 @@ function toggleSelectBtn() {
  * Sets the checked state of the corresponding radio button based on the given priority.
  *
  * @param {string} priority - The priority value to set the radio button for.
- * @author Hanbit Chang
  */
 function getEditPriority(priority) {
   if (priority == "urgent") {
@@ -84,7 +80,6 @@ function getEditPriority(priority) {
  * @param {Array} assignedUsers - The array of assigned user names.
  * @param {string} contactName - The name of the contact to check.
  * @return {string} - The string "checked" if the contact name is found in the array, otherwise an empty string.
- * @author Hanbit Chang
  */
 function getCheckedUsers(assignedUsers, contactName) {
   for (const userName of assignedUsers) {
@@ -96,8 +91,6 @@ function getCheckedUsers(assignedUsers, contactName) {
 
 /**
  * Retrieves the assigned users for a specific task and updates the edit form with their names.
- *
- * @author Hanbit Chang
  */
 async function getEditAssigned() {
   let contactsData = [];
@@ -136,7 +129,6 @@ function getAssignedUserElements() {
  *
  * @param {Array} assignedUsers - An array of user names that are currently assigned to the task.
  * @param {Array} contacts - An array of contact objects, each containing a name and color property.
- * @author Hanbit Chang
  */
 function getEditContacts(assignedUsers, contacts) {
   const contactList = document.getElementById("assigned-list-items");
@@ -158,7 +150,6 @@ function getEditContacts(assignedUsers, contacts) {
  * Toggles the "checked" class on the assigned items and updates the checked users list.
  *
  * @param {Array} contacts - An array of contact objects, each containing a name and color property.
- * @author Hanbit Chang
  */
 function toggleCheckUsers(contacts) {
   const assignedItems = document.querySelectorAll(".assigned-item");
@@ -175,7 +166,6 @@ function toggleCheckUsers(contacts) {
  * Updates the checked users list based on the selected contacts.
  *
  * @param {Array} contacts - An array of contact objects, each containing a name and color property.
- * @author Hanbit Chang
  */
 function checkUsers(contacts) {
   const checked = document.querySelectorAll(".checked");
@@ -232,7 +222,6 @@ function checkedUsersConditionOverFlowed(i, checkedUsers) {
  * @param {string} color - The background color of the assigned user element.
  * @param {string} name - The name of the assigned user.
  * @return {string} - The HTML string representing the assigned user element.
- * @author Hanbit Chang
  */
 function getEditAssignedUser(color, name) {
   return /*html*/ `
@@ -246,7 +235,6 @@ function getEditAssignedUser(color, name) {
  *
  * @param {string} name - The full name from which initials are generated.
  * @return {string} - The initials extracted from the name.
- * @author Hanbit Chang
  */
 function getInitials(name) {
   let words = name.split(" ");
@@ -262,7 +250,6 @@ function getInitials(name) {
  *
  * @param {Array} subtasks - An array of objects containing the task for each subtask.
  * @return {void} This function does not return anything.
- * @author Hanbit Chang
  */
 function getEditSubtasks(subtasks) {
   const list = document.getElementById("subtasks-list");
@@ -277,7 +264,6 @@ function getEditSubtasks(subtasks) {
  *
  * @param {string} task - The name of the task to display in the subtask list item.
  * @return {string} The HTML code for the subtask list item.
- * @author Hanbit Chang
  */
 function getEditSubtasksList(task) {
   return /*html*/ `
@@ -305,7 +291,6 @@ function getEditSubtasksList(task) {
  * and removes it from the DOM.
  *
  * @return {void} This function does not return anything.
- * @author Hanbit Chang
  */
 function onClickTrash() {
   const trashes = document.querySelectorAll("#subtasks-trash");
@@ -326,7 +311,6 @@ function onClickTrash() {
  * - Sets the contentEditable property of the element with the class "subtasks-li-text" to true.
  *
  * @return {void} This function does not return anything.
- * @author Hanbit Chang
  */
 function onClickEditing() {
   const edits = document.querySelectorAll("#subtasks-edit");
@@ -352,7 +336,6 @@ function onClickEditing() {
  * - Sets the contentEditable property of the element with the class "subtasks-li-text" to false.
  *
  * @return {void} This function does not return anything.
- * @author Hanbit Chang
  */
 function onClickChecker() {
   const checkers = document.querySelectorAll("#subtasks-checker");
@@ -376,7 +359,6 @@ function onClickChecker() {
  * to attach event listeners for the corresponding actions.
  *
  * @return {void} This function does not return anything.
- * @author Hanbit Chang
  */
 function getSubtasksEventListeners() {
   onClickTrash();
@@ -390,7 +372,6 @@ function getSubtasksEventListeners() {
  *
  * @param {string} date - The date to be set as the value of the "date-editCard" input field.
  * @return {void} This function does not return anything.
- * @author Hanbit Chang
  */
 function getEditDate(date) {
   const dateData = document.getElementById("date-editCard");
@@ -404,7 +385,6 @@ let show = true;
  * Toggles the visibility of the checkboxes element by changing its display style property.
  *
  * @return {void} This function does not return anything.
- * @author Hanbit Chang
  */
 function showCheckboxes() {
   const checkboxes = document.getElementById("checkBoxes");
@@ -422,7 +402,6 @@ function showCheckboxes() {
  *
  * @param {string} data - The key to retrieve data from the "users" object.
  * @return {Promise<any>} A promise that resolves to the data retrieved from the "users" object.
- * @author Hanbit Chang
  */
 async function getData(data) {
   let urlParams = new URLSearchParams(window.location.search);

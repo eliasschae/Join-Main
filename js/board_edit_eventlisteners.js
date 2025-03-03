@@ -5,7 +5,6 @@
  * @param {Element} editBoard - The edit board element.
  * @param {Element} addBoard - The add board element.
  * @return {void} This function does not return anything.
- * @author Hanbit Chang
  */
 function getEditEventListeners(board, editBoard, addBoard) {
   onClickEditBoard(board, editBoard, addBoard);
@@ -16,7 +15,6 @@ function getEditEventListeners(board, editBoard, addBoard) {
  * @param {Element} board
  * @param {Element} editBoard
  * @param {Element} addBoard
- * @author Hanbit Chang
  */
 function onClickEditBoard(board, editBoard, addBoard) {
   const editBtn = document.getElementById("edit-btn");
@@ -32,7 +30,6 @@ function onClickEditBoard(board, editBoard, addBoard) {
 
 /**
  * Onclick subtasks are modified
- * @author Hanbit Chang
  */
 function onClickEditSubtasks() {
   const subtaskAddBtn = document.getElementById("subtasks-add");
@@ -50,7 +47,6 @@ function onClickEditSubtasks() {
 
 /**
  * Checks the subtasks
- * @author Hanbit Chang
  */
 function checkEditSubtasks() {
   const list = document.getElementById("subtasks-list");
@@ -71,7 +67,6 @@ function checkEditSubtasks() {
  * the server. After the data is saved, the page is reloaded.
  *
  * @return {Promise<void>} A Promise that resolves when the data is saved and the page is reloaded.
- * @author Hanbit Chang
  */
 async function saveEditData() {
   saveTheActualUser();
@@ -123,7 +118,6 @@ async function saveTheActualUser() {
  * @param {Object} item - The item to be updated.
  * @param {Array} contacts - The list of contacts.
  * @return {Object} The updated item.
- * @author Hanbit Chang
  */
 function setEditItems(item, contacts) {
   const title = document.getElementById("title-editCard");
@@ -145,7 +139,6 @@ function setEditItems(item, contacts) {
  *
  * @param {Array} contacts - An array of contact objects, each containing a name and color property.
  * @return {Array|string} An array of assigned user objects, each containing a color and name property. If no users are assigned, an empty string is returned.
- * @author Hanbit Chang
  */
 function editAssignedValue(contacts) {
   const assignedUsers = document.querySelectorAll(".checked .item-text");
@@ -167,7 +160,6 @@ function editAssignedValue(contacts) {
 /**
  * Returns priority
  * @returns string
- * @author Hanbit Chang
  */
 function editPriorityValue() {
   const priority3 = document.getElementById("radio-btn-3");
@@ -186,7 +178,6 @@ function editPriorityValue() {
  * Returns Subtasks value
  * @param {Object} subtasks
  * @returns Object
- * @author Hanbit Chang
  */
 function editSubTasksValue(subtasks) {
   const newSubtasks = document.querySelectorAll(".subtasks-li-text");
@@ -212,7 +203,6 @@ function editSubTasksValue(subtasks) {
  * @param {Object} temp
  * @param {Object} Oldtask
  * @returns Object
- * @author Hanbit Chang
  */
 function updateChecked(temp, Oldtask) {
   const updatedTemp = temp.map((item) => {

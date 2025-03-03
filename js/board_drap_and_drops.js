@@ -1,8 +1,6 @@
 /**
  * Allows dropping
  * @param {Event} ev
- *
- * @author Hanbit Chang
  */
 function allowDrop(ev) {
   ev.preventDefault();
@@ -18,8 +16,6 @@ function allowContentsShow(ev) {
 
 /**
  * Get DropZones
- *
- * @author Hanbit Chang
  */
 function getDropZones() {
   const draggables = document.querySelectorAll(".board-card-dropzone");
@@ -65,7 +61,6 @@ function doDragOver(task) {
  * When the event is triggered, it removes the CSS class "board-card-dropzone--active" from the task element.
  *
  * @param {HTMLElement} task - The task element to add the event listener to.
- * @author Hanbit Chang
  */
 function doDragLeave(task) {
   task.ondragleave = () => {
@@ -79,7 +74,6 @@ function doDragLeave(task) {
  * @param {Event} e - The drag event.
  * @param {number} id - The ID of the data to be transferred.
  * @return {void} This function does not return a value.
- * @author Hanbit Chang
  */
 function doSetData(e, id) {
   e.dataTransfer.setData("text/plain", id);
@@ -90,7 +84,6 @@ function doSetData(e, id) {
  *
  * @param {Event} e - The drop event.
  * @return {Promise<void>} A promise that resolves when the operation is complete.
- * @author Hanbit Chang
  */
 async function doDrop(e) {
   e.preventDefault();
@@ -142,7 +135,6 @@ async function doDropContents(droppedItemElement, insertAfter, itemId, contentId
  *
  * @param {string} draggableId - The ID of the draggable element.
  * @return {Array} An array containing the closest content element's ID and the index of the draggable element within the content.
- * @author Hanbit Chang
  */
 function getClosestContent(draggableId) {
   const idElement = document.getElementById(draggableId);
@@ -159,7 +151,6 @@ function getClosestContent(draggableId) {
  * @param {*} path
  * @param {*} itemId
  * @param {*} newProps
- * @author Hanbit Chang
  */
 async function updateItem(itemId, newProps) {
   let [item, currentColumn] = (() => {
