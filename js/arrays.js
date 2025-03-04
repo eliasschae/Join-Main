@@ -15,8 +15,6 @@ let colors = [
 
 /**
  * This variable contains the data for the contacts that automatically appear in the contacts HTML.
- *
- * @author Robin
  */
 let testContacts = [
   {
@@ -89,8 +87,6 @@ let testContacts = [
 
 /**
  * This variable contains the data for the tasks that automatically appear in the tasks HTML.
- *
- * @author Robin
  */
 let testTasks = [
   {
@@ -199,8 +195,6 @@ let testTasks = [
 
 /**
  * This function generates a random color and returns it.
- *
- * @author: Robin
  */
 function generateRandomColor() {
   let letters = "0123456789ABCDEF";

@@ -8,7 +8,6 @@ let baseUrl = 'https://join-ca44d-default-rtdb.europe-west1.firebasedatabase.app
  * 
  * @param {string} path - The path to fetch data from.
  * 
- * @author: Robin
  */
 async function loadData(path = '') {
     let response = await fetch(baseUrl + path + '.json');
@@ -21,7 +20,6 @@ async function loadData(path = '') {
  * @param {string} path - The path to post data to.
  * @param {object} data - The data to post.
  * 
- * @author: Robin
  */
 async function postData(path = '', data = {}) {
     let response = await fetch(baseUrl + path + '.json', {
@@ -39,7 +37,6 @@ async function postData(path = '', data = {}) {
  * 
  * @param {string} path - The path to delete data from.
  * 
- * @author: Robin
  */
 async function deleteData(path = '') {
     let response = await fetch(baseUrl + path + '.json', {
@@ -54,7 +51,6 @@ async function deleteData(path = '') {
  * @param {string} path - The path to update data in.
  * @param {object} data - The data to update.
  * 
- * @author: Robin
  */
 async function putData(path = '', data = {}) {
     let response = await fetch(baseUrl + path + '.json', {
@@ -72,7 +68,6 @@ async function putData(path = '', data = {}) {
  * 
  * @param {string} newUrl - The new HTML page.
  *  
- * @author: Robin
  */
 function openNewTab(newUrl) {
     newWindow = window.open(newUrl, '_blank');
@@ -81,7 +76,6 @@ function openNewTab(newUrl) {
 /**
  * This function is used to close the actual tab and go back to the last tab.
  * 
- * @author: Robin
  */
 function goBackToLastTab() {
     window.close();
@@ -92,7 +86,6 @@ function goBackToLastTab() {
  * 
  * @param {string} page - The new HTML page.
  * 
- * @author: Robin
  */
 function changeHtmlPage(page) {
     let urlParams = new URLSearchParams(window.location.search);
@@ -103,7 +96,6 @@ function changeHtmlPage(page) {
 /**
  * This function is used to go back to the last HTML page without closing it.
  * 
- * @author: Robin
  */
 function goBackToLastTabWithoutClosing() {
     window.history.back();
@@ -111,8 +103,6 @@ function goBackToLastTabWithoutClosing() {
 
 /**
  * this function is used to fill the header initials.
- * 
- * @author: Robin
  */
 
 async function fillHeaderInitials() {
@@ -127,7 +117,6 @@ async function fillHeaderInitials() {
  * @param {string} name - The full name from which initials are generated.
  * @returns {string} - The initials extracted from the name.
  * 
- * Author: Elias
  */
 function getInitialsUniversal(name) {
     const words = name.split(' ');
@@ -137,8 +126,6 @@ function getInitialsUniversal(name) {
 
 /**
  * This function is used to return the id of the actual user from the URL.
- * 
- * @author: Robin
  */
 function getUserIdFormUrl() {
     let urlParams = new URLSearchParams(window.location.search);

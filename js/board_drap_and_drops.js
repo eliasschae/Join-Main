@@ -48,7 +48,6 @@ function setDragBoard() {
  * When the event is triggered, it adds the CSS class "board-card-dropzone--active" to the task element.
  *
  * @param {HTMLElement} task - The task element to add the event listener to.
- * @author Hanbit Chang
  */
 function doDragOver(task) {
   task.ondragenter = () => {
