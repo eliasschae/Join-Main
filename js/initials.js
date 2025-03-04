@@ -3,7 +3,6 @@
  * Clicking initialsDiv toggles the menuDiv display.
  * Clicking outside menuDiv or initialsDiv hides menuDiv.
  * 
- * Author: Elias
  */
 document.addEventListener('DOMContentLoaded', () => {
   const initialsDiv = document.querySelector('.initials');

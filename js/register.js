@@ -1,7 +1,5 @@
 /**
  * This function is used to block and reactivate the button, if the user accepts the privacy policy and the inputs are not empty.
- * 
- * @author: Robin
  */
 function checkAcceptPrivacyPolicy() {
     let checkbox = document.getElementById('checkbox');
@@ -21,8 +19,6 @@ function checkAcceptPrivacyPolicy() {
 
 /**
  * This function is used to add a new user to the database.
- * 
- * @author: Robin
  */
 async function addUser() {
     let msgBox = document.getElementById('msgBox');
@@ -58,7 +54,6 @@ async function addUser() {
  * @param {Array} actualUsers - The array of actual users.
  * 
  * @returns {boolean} - Returns true if the email exists, otherwise false.
- * @author: Robin
  */
 async function checkMail(msgBox, email, actualUsers) {
     for (let key in actualUsers) {
@@ -84,7 +79,6 @@ async function checkMail(msgBox, email, actualUsers) {
  * @param {string} fullName - The full name of the user.
  * 
  * @returns {boolean} - Returns true if the name is valid, otherwise false.
- * @author: Robin
  */
 async function checkName(msgBox, fullName) {
     let nameParts = fullName.trim().split(' ');
@@ -110,7 +104,6 @@ async function checkName(msgBox, fullName) {
  * @param {Element} msgBox - The message box element to show if the passwords do not match.
  * @param {Array} actualisedUsers - The array of actual users.
  * 
- * @author: Robin
  */
 async function putNewUser(password, confirmPassword, msgBox, newArray) {
     if (password.value === confirmPassword.value) {

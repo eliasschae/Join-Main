@@ -2,7 +2,6 @@
  * Attaches a keydown event listener to the search input element and performs a search on the board cards.
  *
  * @return {void} This function does not return anything.
- * @author Hanbit Chang
  */
 function searchCard() {
   const search = document.getElementById("board-header-search-input");

@@ -5,7 +5,6 @@ let contentId;
  * Attaches event listeners to various elements on the page.
  *
  * @return {void} This function does not return anything.
- * @author Hanbit Chang
  */
 function getEventListeners() {
   const fullsize = document.getElementById("full-size-container");
@@ -43,7 +42,6 @@ function onClickSelectBtn() {
 /**
  * Update the subtasks check and reload
  * @param {Object} subtasks
- * @author Hanbit Chang
  */
 async function updateSubtaskCheck(subtasks) {
   let urlParams = new URLSearchParams(window.location.search);
@@ -64,7 +62,6 @@ async function updateSubtaskCheck(subtasks) {
  * @param {Array} assignedUsers - An array of user names that are currently assigned to the task.
  * @param {Array} contacts - An array of contact objects, each containing a name and color property.
  * @return {void} This function does not return anything.
- * @author Hanbit Chang
  */
 function getAssignedItem(assignedUsers, contacts) {
   const contactList = document.getElementById("assigned-list-items-addCard");
@@ -88,7 +85,6 @@ function getAssignedItem(assignedUsers, contacts) {
  *
  * @param {Array} contacts - An array of contact objects, each containing a name and color property.
  * @return {void} This function does not return anything.
- * @author Hanbit Chang
  */
 function assignedItemEventListener(contacts) {
   const assignedItems = document.querySelectorAll(".assigned-item");
@@ -105,7 +101,6 @@ function assignedItemEventListener(contacts) {
  *
  * @param {Array} contacts - An array of contact objects, each containing a name and color property.
  * @return {void} This function does not return anything.
- * @author Hanbit Chang
  */
 function checkedUsers(contacts) {
   const checked = document.querySelectorAll(".checked");
@@ -144,7 +139,6 @@ function emptyCheckedUsersAddCard() {
  *
  * @param {Object} personWithName - An object containing a name and color property.
  * @return {string} An HTML string representing the assigned user element.
- * @author Hanbit Chang
  */
 function getAssignedUser(personWithName) {
   let name = getInitials(personWithName["name"]);
@@ -159,7 +153,6 @@ function getAssignedUser(personWithName) {
  *
  * @param {string} subtaskInputValue - The name of the task to display in the subtask list item.
  * @return {string} The HTML code for the subtask list item.
- * @author Hanbit Chang
  */
 function getSubtaskListHTML(subtaskInputValue) {
   return /*html*/ `
@@ -185,7 +178,6 @@ function getSubtaskListHTML(subtaskInputValue) {
  * @param {Object} temp
  * @param {Object} Oldtask
  * @returns Object
- * @author Hanbit Chang
  */
 function updateChecked(temp, Oldtask) {
   const updatedTemp = temp.map((item) => {
@@ -201,7 +193,6 @@ function updateChecked(temp, Oldtask) {
  * When the delete button is clicked, it clears the value of the subtask input.
  *
  * @return {void} This function does not return anything.
- * @author Hanbit Chang
  */
 function onClickAddSubTasks() {
   const subtaskAddBtn = document.getElementById("subtasks-add-addCard");
@@ -281,7 +272,6 @@ function setCheckBoxes() {
  *
  * @param {Array} contacts - The list of contacts.
  * @return {Object} The object containing the new item's properties.
- * @author Hanbit Chang
  */
 function getAddObj(contacts) {
   const title = document.getElementById("title-addCard");
@@ -306,7 +296,6 @@ function getAddObj(contacts) {
  *
  * @param {Array} contacts - An array of contact objects, each containing a name and color property.
  * @return {Array|string} An array of assigned user objects, each containing a color and name property. If no users are assigned, an empty string is returned.
- * @author Hanbit Chang
  */
 function addAssignedValue(contacts) {
   const assignedUsers = document.querySelectorAll(".checked .item-text");
@@ -329,7 +318,6 @@ function addAssignedValue(contacts) {
  * and removes any leading or trailing whitespace.
  *
  * @return {string} The text content of the element with the class "btn-text-category".
- * @author Hanbit Chang
  */
 function addCategory() {
   const newCategory = document.getElementById("add-task-categories");
@@ -340,7 +328,6 @@ function addCategory() {
  * Returns the priority value based on the selected radio button.
  *
  * @return {string} The priority value: "urgent", "medium", or "low".
- * @author Hanbit Chang
  */
 function addPriorityValue() {
   const priority6 = document.getElementById("radio-btn-6");
@@ -362,7 +349,6 @@ function addPriorityValue() {
  *                          - `checked`: a boolean indicating whether the subtask is checked or not.
  *                          - `task`: a string representing the text content of the subtask.
  * @throws {string} Returns an empty string if there are no subtasks.
- * @author Hanbit Chang
  */
 function addSubTasks() {
   const newSubtasks = document.querySelectorAll(".subtasks-li-text");
@@ -378,7 +364,6 @@ function addSubTasks() {
  * Deletes a full-size board when the user clicks on the delete button.
  *
  * @return {Promise<void>} A promise that resolves when the board is deleted and the page is reloaded.
- * @author Hanbit Chang
  */
 function deleteFullSizeBoard() {
   const delBtn = document.querySelector(".full-size-button-delete");
@@ -417,7 +402,6 @@ async function deleteRender(actualUsersNumber) {
  *
  * @param {HTMLElement} fullsize - The fullsize element to be hidden.
  * @return {void} This function does not return anything.
- * @author Hanbit Chang
  */
 function cancelAddCard(fullsize) {
   const cancel = document.querySelector(".cancel-button");

@@ -4,8 +4,6 @@
  * @param {Object} contact - The contact object containing name, mail, phone, etc.
  * @param {Array} contacts - The list of old contacts.
  * @param {number} contactId - The ID of the contact.
- * 
- * @author Robin
  */
 async function addContactToDOM(contact, contacts, contactId) {
     insertContactCard(contact, contacts, contactId);
@@ -19,8 +17,6 @@ async function addContactToDOM(contact, contacts, contactId) {
 * @param {Array} oldContacts - The list of old contacts.
 * @param {number} contactId - The ID of the contact.
 * @returns {Promise<void>}
-* 
-* @author Robin
 */
 async function insertContactCard(contact, oldContacts, contactId) {
     const container = getContactsContainer();
@@ -38,8 +34,6 @@ async function insertContactCard(contact, oldContacts, contactId) {
  * Creates a contact card element from the contact HTML string.
  * @param {string} contactHTML - The HTML string representing the contact card.
  * @returns {HTMLElement} The created contact card element.
- * 
- * @author Robin
  */
 function createContactCard(contactHTML) {
     const tempDiv = document.createElement('div');
@@ -57,8 +51,6 @@ function createContactCard(contactHTML) {
  * @param {HTMLElement} container - The contacts container element.
  * @param {HTMLElement} newContactCard - The new contact card element.
  * @returns {Promise<boolean>} True if the special case was handled, otherwise false.
- * 
- * @author Robin
  */
 async function handleSpecialCase(contact, oldContacts, contactLetter, contacts, contactId, container, newContactCard) {
     let letterExists = await checkIfLetterExists(contactLetter, contacts);
@@ -81,8 +73,6 @@ async function handleSpecialCase(contact, oldContacts, contactLetter, contacts, 
  * @param {HTMLElement} container - The contacts container element.
  * @param {HTMLElement} newContactCard - The new contact card element.
  * @param {Object} contactsNew - The updated contacts object.
- * 
- * @author Robin
  */
 function insertLetterSection(contactLetter, container, newContactCard, contactsNew) {
     let letterDiv = createLetterDiv(contactLetter);
@@ -102,8 +92,6 @@ function insertLetterSection(contactLetter, container, newContactCard, contactsN
  * @param {HTMLElement} newContactCard - The new contact card element.
  * @param {string} contactLetter - The first letter of the contact's name.
  * @returns {Promise<void>}
- * 
- * @author Robin
  */
 async function insertNewContact(container, contacts, contact, newContactCard, contactLetter) {
     let inserted = false;
@@ -130,8 +118,6 @@ async function insertNewContact(container, contacts, contact, newContactCard, co
  * @param {string} contactLetter - The first letter of the contact's name.
  * @param {boolean} letterExists - Whether the contact letter already exists among contacts.
  * @returns {Promise<boolean>} True if the contact was inserted, otherwise false.
- * 
- * @author Robin
  */
 async function handleExistingContacts(container, contact, contacts, newContactCard, existingContact, contactLetter, letterExists) {
     const existingContactName = existingContact.querySelector('.NameContact').innerText.toUpperCase();
@@ -155,8 +141,6 @@ async function handleExistingContacts(container, contact, contacts, newContactCa
  * @param {HTMLElement} newContactCard - The new contact card element.
  * @param {string} contactLetter - The first letter of the contact's name.
  * @returns {Promise<void>}
- * 
- * @author Robin
  */
 async function insertBeforeLetter(contacts, newContactCard, contactLetter) {
     const letterDiv = createLetterDiv(contactLetter);
@@ -176,8 +160,6 @@ async function insertBeforeLetter(contacts, newContactCard, contactLetter) {
  * @param {Array} reversedContacts - The reversed list of current contacts.
  * @param {string} contactLetter - The first letter of the contact's name.
  * @returns {HTMLElement|null} The last reversed existing contact element, or null if not found.
- * 
- * @author Robin
  */
 function findReversedExistingContact(reversedContacts, contactLetter) {
     for (const reversedContact of reversedContacts) {
@@ -199,8 +181,6 @@ function findReversedExistingContact(reversedContacts, contactLetter) {
  * @param {string} contactLetter - The first letter of the contact's name.
  * @param {boolean} letterExists - Whether the contact letter already exists among contacts.
  * @returns {Promise<void>}
- * 
- * @author Robin
  */
 async function handleRemainingInsertion(container, contacts, newContactCard, contactLetter, letterExists) {
     if (letterExists) {
@@ -223,8 +203,6 @@ async function handleRemainingInsertion(container, contacts, newContactCard, con
  * @param {Array} contacts - The list of current contacts.
  * @param {string} contactLetter - The first letter of the contact's name.
  * @returns {HTMLElement|null} The last letter contact element, or null if not found.
- * 
- * @author Robin
  */
 function findLastLetterContact(contacts, contactLetter) {
     let lastLetterContact = null;
@@ -243,8 +221,6 @@ function findLastLetterContact(contacts, contactLetter) {
  * @param {HTMLElement} newContactCard - The new contact card element.
  * @param {string} contactLetter - The first letter of the contact's name.
  * @param {HTMLElement} lastExistingContact - The last existing contact element.
- * 
- * @author Robin
  */
 function insertNewLetterSection(newContactCard, contactLetter, lastExistingContact) {
     const letterDiv = createLetterDiv(contactLetter);
@@ -260,8 +236,6 @@ function insertNewLetterSection(newContactCard, contactLetter, lastExistingConta
  * 
  * @param {string} contactLetter - The letter of the contact.
  * @param {Array<HTMLElement>} contacts - The contacts container.
- * 
- * @author Robin
  */
 function checkIfLetterExists(contactLetter, contacts) {
     for (const existingContact of contacts) {
@@ -277,8 +251,6 @@ function checkIfLetterExists(contactLetter, contacts) {
 
 /**
  * Removes empty letter headers from the contacts container.
- * 
- * @author Robin
  */
 function removeEmptyLetterHeaders() {
     let container = getContactsContainer();

@@ -1,6 +1,5 @@
 /**
  * Clears input fields in the contact form.
- * Author: Elias
  */
 function clearInputFields() {
   document.querySelectorAll(".inputField").forEach((input) => (input.value = ""));
@@ -8,8 +7,6 @@ function clearInputFields() {
 
 /**
  * Clears input fields in the add contact form.
- * 
- * @author Robin
  */
 function clearInputFieldsAddContact() {
   document.getElementById("contactName").value = "";
@@ -19,11 +16,8 @@ function clearInputFieldsAddContact() {
 
 /**
  * Sorts contacts alphabetically by name.
- *
  * @param {Array<Object>} contacts - Array of contact objects.
  * @returns {Array<Object>} Sorted contacts.
- *
- * Author: Elias
  */
 function sortContacts(contacts) {
   contacts = Object.values(contacts);
@@ -43,7 +37,6 @@ function sortContacts(contacts) {
 
 /**
  * Displays sorted contacts in the HTML container, grouped by the first letter.
- * Author: Elias
  * @param {Array<Object>} contacts - Sorted contact objects.
  */
 async function displayContacts(contacts) {
@@ -60,7 +53,6 @@ async function displayContacts(contacts) {
 
 /**
  * Gets the contacts container element.
- * Author: Elias
  * @returns {HTMLElement} - The contacts container element.
  */
 function getContactsContainer() {
@@ -73,7 +65,6 @@ function getContactsContainer() {
 
 /**
  * Clears the contacts container.
- * Author: Elias
  * @param {HTMLElement} container - The contacts container element.
  */
 function clearContactsContainer(container) {
@@ -82,7 +73,6 @@ function clearContactsContainer(container) {
 
 /**
  * Populates the contacts container with sorted contacts.
- * Author: Elias
  * @param {Array<Object>} contacts - Sorted contact objects.
  * @param {HTMLElement} container - The contacts container element.
  */
@@ -104,7 +94,6 @@ async function populateContacts(contacts, container) {
 
 /**
  * Adds a letter header to the contacts container.
- * Author: Elias
  * @param {HTMLElement} container - The contacts container element.
  * @param {string} letter - The letter to add as header.
  */
@@ -117,7 +106,6 @@ function addLetterHeader(container, letter) {
 
 /**
  * Creates a letter div element.
- * Author: Elias
  * @param {string} letter - The letter to display.
  * @returns {HTMLElement} - The letter div element.
  */
@@ -133,7 +121,6 @@ function createLetterDiv(letter) {
 
 /**
  * Creates a separator div element.
- * Author: Elias
  * @returns {HTMLElement} - The separator div element.
  */
 function createSeparatorDiv() {
@@ -144,7 +131,6 @@ function createSeparatorDiv() {
 
 /**
  * Saves a contact in Firebase under a sequential ID and adds a randomly generated color.
- * Author: Elias
  * @param {string} name - The name of the contact.
  * @param {string} mail - The email of the contact.
  * @param {string} phone - The phone number of the contact.
@@ -161,7 +147,6 @@ async function saveContact(name, mail, phone, userId, contacts) {
 
 /**
  * Generates a random color in hexadecimal format.
- * Author: Elias
  * @returns {string} - A random hexadecimal color.
  */
 function generateRandomColor() {
@@ -175,7 +160,6 @@ function generateRandomColor() {
 
 /**
  * Creates a contact data object with a random color.
- * Author: Elias
  * @param {string} name - The name of the contact.
  * @param {string} mail - The email of the contact.
  * @param {string} phone - The phone number of the contact.
@@ -192,7 +176,6 @@ function createContactData(name, mail, phone) {
 
 /**
  * Finds the first missing ID in an array of IDs.
- * Author: Elias
  * @param {Object} contacts - The contacts object.
  * @returns {number} - The first missing ID.
  */
@@ -210,7 +193,6 @@ async function findMissingId(contacts) {
 
 /**
  * Retrieves specific data for a user from the Firebase database based on the user's number in the URL parameter.
- * Author: Elias
  * @param {string} data - The data key to retrieve from Firebase.
  * @returns {Promise<any>} - The requested data.
  */
@@ -223,7 +205,6 @@ async function getData(data) {
 
 /**
  * Handles the creation of a new contact.
- * Author: Elias
  * @param {Event} event - The event object.
  */
 async function createContact(event) {
@@ -247,7 +228,6 @@ async function createContact(event) {
  * @param {string} mail - The email of the contact.
  * @param {Object} contacts - The contacts object.
  * 
- * @author Robin 
  */
 async function checkIfContactAlreadyExists(alreadyExist, userId, phone, name, mail, contacts) {
   if (alreadyExist) {
@@ -268,8 +248,6 @@ async function checkIfContactAlreadyExists(alreadyExist, userId, phone, name, ma
 
 /**
  * This function closes the add contact overlay.
- * 
- * @author Robin
  */
 function closeAddContact() {
   const mainSectionOverlay = document.querySelector(".mainSectionOverlay");
@@ -281,7 +259,6 @@ function closeAddContact() {
 
 /**
  * Handles the display of contacts after a new contact is created.
- * Author: Elias
  * @param {Array<Object>} contactsNew - The new contacts array.
  */
 async function handleLoadedContacts(contactsNew) {
@@ -295,7 +272,6 @@ async function handleLoadedContacts(contactsNew) {
 
 /**
  * Hides the contact information section in a responsive manner.
- * Author: Elias
  */
 function closeContactInfoResponsive() {
   document.getElementById("contentright").style.display = "none";
@@ -303,8 +279,6 @@ function closeContactInfoResponsive() {
 
 /**
  * Opens the edit and delete section in a responsive manner.
- *
- * @author Robin
  */
 function openEditAndDeleteResponsive() {
   document.body.style.overflow = "hidden";
@@ -314,8 +288,6 @@ function openEditAndDeleteResponsive() {
 
 /**
  * Closes the edit and delete section in a responsive manner.
- *
- * @author Robin
  */
 function closeEditAndDeleteResponsive() {
   const editDeleteDiv = document.getElementById("editDelete-div");
@@ -334,7 +306,6 @@ function closeEditAndDeleteResponsive() {
  * @param {Object} updatedContact - The updated contact object containing name, email, and phone.
  * @param {string} userId - The ID of the user who owns the contact.
  *
- * Author: Elias
  */
 async function updateContactInFirebase(contactId, updatedContact, userId) {
   await putData(`users/` + userId + `/contacts/` + contactId, updatedContact);
@@ -346,7 +317,6 @@ async function updateContactInFirebase(contactId, updatedContact, userId) {
  * @param {string} newEmail - The new email of the contact.
  * @param {string} phone - The phone number of the contact.
  * @param {string} randomColor - The random color of the contact.
- * Author: Elias
  */
 async function createUpdatedContact(name, newEmail, phone, randomColor) {
   return {
@@ -360,7 +330,6 @@ async function createUpdatedContact(name, newEmail, phone, randomColor) {
 /**
  * Refreshes and displays sorted contacts.
  * @param {string} userId - The ID of the user who owns the contacts.
- * Author: Elias
  */
 async function refreshAndDisplayContacts(userId) {
   const actualUsers = await loadData(`users/${userId}/contacts`);
@@ -373,7 +342,6 @@ async function refreshAndDisplayContacts(userId) {
  * @param {string} email - The email address of the contact.
  * @param {Object} contacts - The contacts object.
  * @returns {Promise<string>} - A promise that resolves to a random color in hexadecimal format.
- * Author: Elias
  */
 async function findContactsRandomColor(email, contacts) {
   for (let contactId in contacts) {

@@ -2,7 +2,6 @@
  * This function is used onload of the body of the summary HTML page. It gets the number of the user from the link and shares it with the fillDates functions. 
  * The function also uses the function loadData to load the data from the remoteStorage (Firebase).
  * 
- * @author: Robin
  */
 async function initSummary() {
   let urlParams = new URLSearchParams(window.location.search);
@@ -20,7 +19,6 @@ async function initSummary() {
  * - 'Good evening' otherwise.
  * Displays the greeting in an element with id 'greetingText'.
  * 
- * Author: Elias
  */
 document.addEventListener("DOMContentLoaded", function () {
   let today = new Date();
@@ -40,8 +38,6 @@ document.addEventListener("DOMContentLoaded", function () {
 /**
    * This function is used to check the mediaQuery and the referrer. If the mediaQuery matches and the referrer contains login.html, 
    * the showGreetingThenMain function is called. Otherwise, the mainContainer is shown.
-   * 
-   * @author: Robin
    */
 async function checkConditions() {
   var mediaQuery = window.matchMedia("(max-width: 1100px)");
@@ -56,8 +52,6 @@ async function checkConditions() {
 
 /**
  * This function is used to show the greeting and then the mainContainer.
- * 
- * @author: Robin
  */
 
 function showGreetingThenMain() {
@@ -77,7 +71,6 @@ function showGreetingThenMain() {
  * @param {number} actualUsersNumber - The number of the user.
  * @param {array} actualUsers - The array of the users.
  *
- * @author: Robin
  */
 function fillDates(actualUsersNumber, actualUsers) {
   let actualUser = actualUsers[actualUsersNumber];
@@ -98,7 +91,6 @@ function fillDates(actualUsersNumber, actualUsers) {
  * 
  * @param {object} actualUser - The object of the user.
  * 
- * @author: Robin
  */
 function actualTasksInBoard(actualUser) {
   let tasksInBoard = 0;
@@ -113,7 +105,6 @@ function actualTasksInBoard(actualUser) {
  *
  * @param {string} id - The id of the element.
  *
- * @author: Robin
  */
 function getElementById(id) {
   return document.getElementById(id);
@@ -125,7 +116,6 @@ function getElementById(id) {
  * @param {object} actualUser - The object of the user.
  * @param {array} urgentDates - The array of the urgent dates.
  *
- * @author: Robin
  */
 function fillUrgentTask(actualUser, urgentDates) {
   let urgentTasksNumber = 0;
@@ -147,7 +137,6 @@ function fillUrgentTask(actualUser, urgentDates) {
  *
  * @param {array} urgentDates - The array of the urgent dates.
  *
- * @author: Robin
  */
 function fillUrgentDate(urgentDates) {
   let dateInMilliseconds = urgentDates.map((date) => new Date(date).getTime());
@@ -160,5 +149,3 @@ function fillUrgentDate(urgentDates) {
   let formattedDate = `${monthName} ${day}, ${year}`;
   getElementById("urgentDate").innerHTML = formattedDate;
 }
-
-

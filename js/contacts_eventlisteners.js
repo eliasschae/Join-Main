@@ -1,12 +1,10 @@
 /**
  * Initializes contact click events after the DOM is fully loaded.
- * Author: Elias
  */
 document.addEventListener("DOMContentLoaded", setupContactClickEvents(getData("contacts")));
 
 /**
  * Sets up event listeners for the contact management interface.
- * Author: Elias
  */
 document.addEventListener("DOMContentLoaded", function () {
     setupAddContactButton();
@@ -18,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 /**
 * Sets up the event listener for the add contact button.
-* Author: Elias
 */
 function setupAddContactButton() {
     const addContactButton = document.querySelector(".addContactButton");
@@ -34,7 +31,6 @@ function setupAddContactButton() {
 
 /**
 * Sets up the event listener for clicks on the document.
-* Author: Elias
 */
 function setupDocumentClickListener() {
     const overlay = document.getElementById("overlay");
@@ -48,7 +44,6 @@ function setupDocumentClickListener() {
 
 /**
  * Sets up the event listener for the close image.
- * Author: Elias
  */
 function setupCloseImageListener() {
     const closeImage = document.querySelector(".imgcloseOverlay");
@@ -66,7 +61,6 @@ function setupCloseImageListener() {
 
 /**
 * Sets up the event listener for the cancel button.
-* Author: Elias
 */
 function setupCancelButtonListener() {
     const cancelButton = document.querySelector(".clearButton");
@@ -84,7 +78,6 @@ function setupCancelButtonListener() {
 
 /**
  * Sets up the event listener for the contactsA div.
- * Author: Elias
  */
 function setupContactsAListener() {
     const contactsADiv = document.querySelector(".contactsA");
@@ -97,8 +90,6 @@ function setupContactsAListener() {
 
 /**
  * Fetches and displays sorted user contacts from Firebase when the DOM is fully loaded.
- *
- * Author: Elias
  */
 document.addEventListener("DOMContentLoaded", async function () {
     try {
@@ -121,7 +112,6 @@ let dataId;
 /**
  * Initializes contact click events.
  * @param {Array<Object>} contacts - The contacts to be displayed.
- * Author: Elias
  */
 async function setupContactClickEvents(contacts) {
     const contactCards = document.querySelectorAll(".contactCard");
@@ -146,7 +136,6 @@ async function setupContactClickEvents(contacts) {
  * @param {HTMLElement} contentRight - The content right section element.
  * @param {Array<Object>} contacts - The contacts array.
  * 
- * Author: Elias
  */
 function setupEditAndDeleteButtons(contactDetailsDiv, card, name, email, phone, randomColor, initials, contentRight) {
     
@@ -169,7 +158,6 @@ function setupEditAndDeleteButtons(contactDetailsDiv, card, name, email, phone, 
  * @param {Object} contactDetailsDiv - The contact details div element.
  * @param {Array<Object>} contacts - The contacts array.
  * 
- * @author Elias
  */
 async function deleteContactOnclick(card, email, contentRight, contactDetailsDiv, contacts) {
     try {
@@ -188,7 +176,6 @@ async function deleteContactOnclick(card, email, contentRight, contactDetailsDiv
 * 
 * @param {string} email - The email of the contact. 
 *
-* Author: Elias
 */
 function setupDeleteButton(email) {
     const deleteButton = document.querySelector(".deleteButton");
@@ -200,7 +187,6 @@ function setupDeleteButton(email) {
 /**
 * Sets up the contact click event listener.
 * 
-* Author: Elias
 */
 document.addEventListener('DOMContentLoaded', function() {
     const contacts = document.querySelectorAll('.contact');
@@ -213,7 +199,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   /**
  * Initializes event listeners for contact cards.
- * Author: Elias
  */
 async function initContactCardClickHandlers() {
     let contacts = await getData("contacts");

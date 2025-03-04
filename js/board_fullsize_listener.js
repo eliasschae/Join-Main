@@ -4,7 +4,6 @@
  * @param {Element} board
  * @param {Element} editBoard
  * @param {Element} addBoard
- * @author Hanbit Chang
  */
 function onClickFullSizeBoard(fullsize, board, editBoard, addBoard) {
   const boardCard = document.querySelectorAll(".board-card");
@@ -24,7 +23,6 @@ function onClickFullSizeBoard(fullsize, board, editBoard, addBoard) {
 /**
  * Onclick closes the full-size
  * @param {Element} fullsize
- * @author Hanbit Chang
  */
 function onClickCloseFullSize(fullsize) {
   onClickCloseBtnImgAdd(fullsize);
@@ -115,7 +113,6 @@ function resetPriority() {
  * @param {Element} board
  * @param {Element} editBoard
  * @param {Element} addBoard
- * @author Hanbit Chang
  */
 function onClickAddTaskBoard(fullsize, board, editBoard, addBoard) {
   onClickToggleSelectBtn();
@@ -200,7 +197,6 @@ function oneCheckBox() {
  *
  * @param {number} contentIdAdd - The ID of the content to add.
  * @return {void} This function does not return anything.
- * @author Hanbit Chang
  */
 function addTaskBtnSmall(contentIdAdd) {
   if (window.innerWidth < 480) {
@@ -224,7 +220,6 @@ function addTaskBtnSmall(contentIdAdd) {
  * Retrieves the assigned users for a specific task and updates the add card form with their names.
  *
  * @return {Promise<void>} A Promise that resolves when the assigned users have been retrieved and the add card form has been updated.
- * @author Hanbit Chang
  */
 async function getAddAssgined() {
   let data = await getData("tasks");
@@ -254,7 +249,6 @@ async function getAddAssgined() {
  * @param {Array} assignedUsers - An array of user names that are currently assigned to the task.
  * @param {Array} contacts - An array of contact objects, each containing a name and color property.
  * @return {void} This function does not return anything.
- * @author Hanbit Chang
  */
 function getAssignedUsersAddCard(assignedUsers, contacts) {
   getAssignedItem(assignedUsers, contacts);
@@ -267,7 +261,6 @@ function getAssignedUsersAddCard(assignedUsers, contacts) {
  * the server. After the data is saved, the page is reloaded.
  *
  * @return {Promise<void>} A Promise that resolves when the data is saved and the page is reloaded.
- * @author Hanbit Chang
  */
 async function saveAddData() {
   let urlParams = new URLSearchParams(window.location.search);

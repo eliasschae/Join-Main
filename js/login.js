@@ -1,7 +1,5 @@
 /**
  * This function is used to show an animation with the join logo, to set a timeout and show the Login Container with changed CSS when the animation is finished.
- * 
- * @author: Robin
  */
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('logoContainerSlide').classList.remove('logoContainerSlide');
@@ -15,15 +13,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /**
  * This event listener is used to load the user data from local storage and check the checkbox, if the checkboxBoolean is true.
- * 
- * @author: Robin
  */
 window.addEventListener('load', loadUserData);
 
 /**
  * This function is used to toggle the visibility of the password input field, if the mouse moves over the lock image.
- * 
- * @author: Robin
  */
 function togglePasswordVisbility() {
     let passwordInput = document.getElementById('password');
@@ -41,8 +35,6 @@ function togglePasswordVisbility() {
 
 /**
  * This function is used to check if the user exists and if the password is correct. If both conditions are correct, the user is logged in.
- * 
- * @author: Robin
  */
 async function checkUser() {
     let email = document.getElementById('email').value;
@@ -72,7 +64,6 @@ async function checkUser() {
  * @param {Array} actualUsers - The array of actual users.
  * @param {number} actualMailSearchIndex - The index of the user in the array.
  * 
- * @author: Robin
  */
 async function userNotFound(found, actualUsers, actualMailSearchIndex) {
     if (!found) {
@@ -97,8 +88,6 @@ let checkboxBoolean = false;
 
 /**
  * This function is used to save the user data in local storage, if the checkbox is checked.
- * 
- * @author: Robin
  */
 function saveUserData() {
     let email = document.getElementById('email').value;
@@ -116,8 +105,6 @@ function saveUserData() {
 
 /**
  * This function is used to load the user data from local storage and check the checkbox, if the checkboxBoolean is true.
- * 
- * @author: Robin
  */
 function loadUserData() {
     let storedEmail = localStorage.getItem('email');
@@ -135,8 +122,6 @@ function loadUserData() {
 
 /**
  * This function is used to log in as a guest if the user is not registered.
- * 
- * @author: Robin
  */
 async function guestLogIn() {
     let users = await loadData('users');
@@ -149,8 +134,6 @@ async function guestLogIn() {
 
 /**
  * This function is used to add an event listener to the background element, if the animation is ended, the login container is shown.
- * 
- * @author: Robin
  */
 document.addEventListener("DOMContentLoaded", function () {
     var backgroundElement = document.querySelector('.responsiveBackgroundForSlide');
