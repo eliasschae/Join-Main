@@ -31,8 +31,6 @@
  * 
  * - Clicking the addContactButton shows the overlay.
  * - Clicking outside the overlay or on the closeImage inside the overlay hides the overlay.
- * 
- * Author: Elias
  */
 document.addEventListener("DOMContentLoaded", function () {
   const addContactButton = document.querySelector(".addContactButton");
@@ -74,8 +72,6 @@ document.addEventListener("DOMContentLoaded", function () {
 /**
  * This function clears the text in the input fields for contact name, email, and phone.
  * It retrieves the input elements by their respective IDs and sets their values to an empty string.
- * 
- * Author: Elias
  */
 function clearInputFields() {
   const contactNameInput = document.getElementById("contactName");
@@ -89,8 +85,6 @@ function clearInputFields() {
 
 /**
  * Fetches and displays sorted user contacts from Firebase when the DOM is fully loaded.
- * 
- * Author: Elias
  */
 document.addEventListener("DOMContentLoaded", async function() {
   try {
@@ -117,8 +111,6 @@ document.addEventListener("DOMContentLoaded", async function() {
  * @param {string} path - The path to fetch data from.
  * @param {string} baseUrl - The base URL of the Firebase database.
  * @returns {Promise&lt;Object>} The JSON response.
- * 
- * Author: Elias
  */
 async function loadData(path='', baseUrl) {
   const response = await fetch(`${baseUrl}${path}.json`);
@@ -134,7 +126,6 @@ async function loadData(path='', baseUrl) {
  * @param {Array&lt;Object>} contacts - Array of contact objects.
  * @returns {Array&lt;Object>} Sorted contacts.
  * 
- * Author: Elias
  */
 function sortContacts(contacts) {
   contacts.sort((a, b) => {
@@ -162,7 +153,6 @@ function sortContacts(contacts) {
  * 
  * @param {Array&lt;Object>} contacts - Sorted contact objects.
  * 
- * Author: Elias
  */
 function displayContacts(contacts) {
   const contactsContainer = document.getElementById('contacts-container');

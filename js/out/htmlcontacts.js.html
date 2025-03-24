@@ -29,8 +29,6 @@
             <pre class="prettyprint source linenums"><code>/**
  * Listens for DOMContentLoaded, adds click listener to 'contactCard' elements,
  * extracts data from clicked card, and updates '.contactdetails-right' HTML.
- * 
- * Author: Elias
  */
 function setupContactClickEvents() {
     const contactCards = document.querySelectorAll('.contactCard');
@@ -87,7 +85,6 @@ function setupContactClickEvents() {
  * @param {Object} contact - The contact object.
  * @returns {string} - The HTML string for the contact.
  * 
- * Author: Elias
  */
 function generateContactHTML(contact) {
     const randomColor = generateRandomColor(contact.name);
@@ -109,7 +106,6 @@ function generateContactHTML(contact) {
  * @param {string} seed - The seed string used to generate the color.
  * @returns {string} - A hex color code generated from the seed.
  * 
- * Author: Elias
  */
 function generateRandomColor(seed) {
     var hash = 0;
@@ -130,7 +126,6 @@ function generateRandomColor(seed) {
  * @param {string} name - The full name from which initials are generated.
  * @returns {string} - The initials extracted from the name.
  * 
- * Author: Elias
  */
 function getInitials(name) {
     const words = name.split(' ');

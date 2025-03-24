@@ -28,8 +28,6 @@
         <article>
             <pre class="prettyprint source linenums"><code>/**
  * This function is used to set a timeout and show the Login Container with changed CSS when the animation is finished.
- * 
- * @author: Robin
  */
 function init() {
     document.getElementById('logoContainerSlide').classList.remove('logoContainerSlide');
@@ -43,8 +41,6 @@ function init() {
 
 /**
  * This function is used to toggle the visibility of the password input field, if the mouse moves over the lock image.
- * 
- * @author: Robin
  */
 function togglePasswordVisbility() {
     let passwordInput = document.getElementById('password');
@@ -62,8 +58,6 @@ function togglePasswordVisbility() {
 
 /**
  * This function is used to check if the user exists and if the password is correct. If both conditions are correct, the user is logged in.
- * 
- * @author: Robin
  */
 async function checkUser() {
     let email = document.getElementById('email').value;
@@ -92,8 +86,6 @@ async function checkUser() {
  * @param {boolean} found - A boolean value that is used to determine if the user was found.
  * @param {object} actualUsers - An object that contains all the users.
  * @param {number} actualMailSearchIndex - The index of the user that was found.
- * 
- * @author: Robin
  */
 async function userNotFound(found, actualUsers, actualMailSearchIndex) {
     if (!found) {
@@ -116,8 +108,6 @@ async function userNotFound(found, actualUsers, actualMailSearchIndex) {
  * 
  * @param {string} email - The email of the user.
  * @param {string} password - The password of the user.
- * 
- * @author: Robin
  */
 function saveUserData(email, password) {
     let rememberMe = document.getElementById('checkbox').checked;
@@ -134,7 +124,6 @@ function saveUserData(email, password) {
  * This function is used to load the user data from local storage, if the checkbox is checked and 
  * clear the Input Fields if the checkbox is not checked if the checkbox is not checked.
  * 
- * @author: Robin
  */
 function loadUserData() {
     let storedEmail = localStorage.getItem('email');
@@ -153,7 +142,6 @@ function loadUserData() {
 /**
  * This function is used to log in as a guest if the user is not registered.
  * 
- * @author: Robin
  */
 async function guestLogIn() {
     let users = await loadData('users');
