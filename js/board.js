@@ -214,10 +214,12 @@ function getBoardCard(card, zoneSize) {
  * @param {number} id - board id
  */
 function getCategory(category, id) {
+  const formattedCategory = category.toLowerCase().trim(); 
+
   const content = document.getElementById(`${id}`);
   const boardCategory = content.querySelector("#board-category");
 
-  boardCategory.src = icons["categoryIcons"][category] || "";
+  boardCategory.src = icons["categoryIcons"][formattedCategory] || "";
 }
 
 /**
